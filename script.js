@@ -119,8 +119,8 @@ function startLabelAnimation() {
   }, refreshRate);
 }
 
-function pulse_heartrate(intBPM){
-  const milliseconds_between_beats = 1 / (intBPM / 60) * 1000; 
+function pulse_heartrate(intBPM) {
+  const milliseconds_between_beats = 1 / (intBPM / 60) * 1000;
   window.setInterval(() => {
     pulse_heartbeat();
   }, milliseconds_between_beats);
@@ -128,11 +128,11 @@ function pulse_heartrate(intBPM){
 }
 
 
-async function pulse_heartbeat(){
+async function pulse_heartbeat() {
   colourpulse();
   await new Promise(resolve => setTimeout(resolve, 300));
   colourpulse();
-  
+
 }
 
 // Pulse the colours
@@ -155,24 +155,20 @@ async function colourpulse() {
     "#F37506",
     "#E06D06"
   ];
-  
+
   // Get the combined string to change:
   let strCombined = document.getElementById("output_generated_combined").innerHTML;
 
-  for (let i = 0; i < colourPast.length -1; i++) {
-    
-      await new Promise(resolve => setTimeout(resolve, 25));
+  for (let i = 0; i < colourPast.length - 1; i++) {
 
-      // Replace values:
-      strCombined = strCombined.replace(colourPast[i], colourPast[i + 1]);
-      strCombined = strCombined.replace(colourFuture[i], colourFuture[i + 1]);
+    await new Promise(resolve => setTimeout(resolve, 25));
 
-      // Send to HTML:
-      //document.getElementById("temp").innerHTML = document.getElementById("temp").innerHTML + " - " + i;
-      document.getElementById("output_generated_combined").innerHTML = strCombined;
-    
+    // Replace values:
+    strCombined = strCombined.replace(colourPast[i], colourPast[i + 1]);
+    strCombined = strCombined.replace(colourFuture[i], colourFuture[i + 1]);
 
-    
+    // Send to HTML:
+    document.getElementById("output_generated_combined").innerHTML = strCombined;
 
   }
 }
