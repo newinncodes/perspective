@@ -2,7 +2,7 @@
   font-family: monospace;
   color: #EFECCA;
   overflow-wrap: break-word;
-  font-size: 1.6vh;
+  font-size: 1.1vh;
 
 }
 
@@ -18,13 +18,13 @@ p {
   color: #102542;
   font-family: monospace;
   font-size: 1.6vh;
-  line-height: 2.2vh;
+  line-height: 3vh;
   display: inline;
 }
 
 button {
   float: right;
   font-size: 1.4vh;
-  height: 2.2vh;
+  height: 2.6vh;
   opacity: 80%;
 }
