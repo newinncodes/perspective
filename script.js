@@ -93,12 +93,7 @@ function createPerspective(intPeriod) {
 
   // Combine the strings together:
   var str_combined =
-    '<span style="background-color:#5B6C5D;">' +
-    str_past_labeled +
-    "</span>" +
-    '<span style="background-color:#E06D06;">' +
-    str_future_labeled +
-    "</span>";
+    '<span style="background-color:#5B6C5D;">' + str_past_labeled + "</span>" + '<span style="background-color:#E06D06;">' + str_future_labeled + "</span>";
 
   // Send to HTML:
   document.getElementById("output_generated_combined").innerHTML = str_combined;
