@@ -7,8 +7,7 @@ let dif_future_weeks = 0;
 // Run these functions on load:
 calcDays(120);
 createPerspective(1);
-startLabelAnimation();
-// pulse_heartrate(60);  // This is distracting - find a better way
+animatePastFutureLabels();
 
 // Calling buttons to set lifespan age
 function setLifespan120() {
@@ -21,9 +20,9 @@ function setLifespan88() {
   createPerspective(0);
 }
 
-// ---------------------------------
+// --------------------------------------
 // Function to create the Perspective map
-// ---------------------------------
+// --------------------------------------
 
 function calcDays(intLifespan) {
   // Calculate the number of weeks in the past and future
@@ -42,9 +41,7 @@ function calcDays(intLifespan) {
 }
 
 function createPerspective(intPeriod) {
-  // ---------------------------------
   // Generate the text strings
-  // ---------------------------------
   var str_past = "-";
   var str_future = "-";
   var int_pastPeriods = 1;
@@ -99,8 +96,12 @@ function createPerspective(intPeriod) {
   document.getElementById("output_generated_combined").innerHTML = str_combined;
 }
 
+// ------------------------------------
+// Animations
+// ------------------------------------
+
 // Animate the label with a timed loop
-function startLabelAnimation() {
+function animatePastFutureLabels() {
   const refreshRate = 200000 / 60;
   let lbl_typenum = 1;
 
@@ -114,15 +115,7 @@ function startLabelAnimation() {
   }, refreshRate);
 }
 
-function pulse_heartrate(intBPM) {
-  const milliseconds_between_beats = 1 / (intBPM / 60) * 1000;
-  window.setInterval(() => {
-    pulse_heartbeat();
-  }, milliseconds_between_beats);
-  pulse_heartbeat;
-}
-
-
+// Pulse the main perspective map like a heartbeat
 async function pulse_heartbeat() {
   colourpulse();
   await new Promise(resolve => setTimeout(resolve, 300));
@@ -135,18 +128,12 @@ async function colourpulse() {
   let colourPast = [
     "#5B6C5D",
     "#657967",
-    //"#BCC7BE",
-    //"#E9ECE9",
-    //"#BCC7BE",
     "#657967",
     "#5B6C5D"
   ];
   let colourFuture = [
     "#E06D06",
     "#F37506",
-    //"#FCBE88",
-    //"#FEE9D7",
-    //"#FCBE88",
     "#F37506",
     "#E06D06"
   ];
@@ -167,3 +154,14 @@ async function colourpulse() {
 
   }
 }
+
+// Unused test function - to get something on the site pulsing like a heartrate
+/*
+function pulse_heartrate(intBPM) {
+  const milliseconds_between_beats = 1 / (intBPM / 60) * 1000;
+  window.setInterval(() => {
+    pulse_heartbeat();
+  }, milliseconds_between_beats);
+  pulse_heartbeat;
+}
+*/
