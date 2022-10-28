@@ -1,15 +1,14 @@
 #output_generated_combined {
   font-family: monospace;
   color: #EFECCA;
-  overflow-wrap: break-word;
-  font-size: 1.1vh;
-
+  display:block;
+  overflow:auto;
 }
 
 body {
   background: radial-gradient(ellipse at bottom, #EFECCA 0%, #EFECCA 100%);
   position: relative;
-  height: 100vh;
+  height: 95vh;
   width: 100vw;
   margin: 00;
 }

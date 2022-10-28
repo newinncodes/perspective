@@ -8,8 +8,13 @@ let dif_future_weeks = 0;
 calcDays(120);
 createPerspective(1);
 animatePastFutureLabels();
+fit_to_height();
+window.onresize = fit_to_height;
 
 // Calling buttons to set lifespan age
+
+// TODO map slowly unfolds and folds as years are changed
+
 function setLifespan120() {
   calcDays(120);
   createPerspective(2);
@@ -91,6 +96,8 @@ function createPerspective(intPeriod) {
   // Combine the strings together:
   var str_combined =
     '<span style="background-color:#5B6C5D;">' + str_past_labeled + "</span>" + '<span style="background-color:#E06D06;">' + str_future_labeled + "</span>";
+  var str_past_combined = '<span style="background-color:#5B6C5D;">' + str_past_labeled + "</span>"
+  var str_future_combined = '<span style="background-color:#E06D06;">' + str_future_labeled + "</span>";
 
   // Send to HTML:
   document.getElementById("output_generated_combined").innerHTML = str_combined;
@@ -165,3 +172,32 @@ function pulse_heartrate(intBPM) {
   pulse_heartbeat;
 }
 */
+
+
+function fit_to_height(){
+
+  // get dimensions of vietport:
+  let viewportHeight = window.innerHeight;
+  let viewportWidth = window.innerWidth;
+  let viewportSum = viewportHeight + viewportWidth;
+  let vietportArea = viewportHeight * viewportWidth;
+  console.log(viewportWidth + "x" + viewportHeight );
+
+  // get perspective string:
+  let output = document.getElementById("output_generated_combined");
+  let strCombined = output.innerHTML;
+
+  // calculate dimensions for new font size:
+  let intStringLength = strCombined.length;
+  let numX_prescale = intStringLength * (viewportWidth/vietportArea);
+  let numY_prescale = intStringLength * (viewportHeight/vietportArea);
+  let num_scaler = (intStringLength / (numX_prescale * numY_prescale))**(0.5); // scaler used to scale up X and Y
+
+  let numX = Math.floor(numX_prescale * num_scaler)
+  let numY = Math.floor(numY_prescale * num_scaler)
+  let fontWidthPX = viewportWidth / numX;
+  const fontScaler = 1.18; // Adjustment by this scaler as height of font greater than width and we want to fill the space
+   
+  output.style.fontSize=(fontWidthPX * fontScaler) +"px";  // Adjust by 1.2 as fontheight is larger than fontwidth in monospace
+
+}
