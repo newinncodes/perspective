@@ -18,11 +18,13 @@ window.onresize = fit_to_height;
 function setLifespan120() {
   calcDays(120);
   createPerspective(2);
+  fit_to_height();
 }
 
 function setLifespan88() {
   calcDays(88);
   createPerspective(0);
+  fit_to_height();
 }
 
 // --------------------------------------
