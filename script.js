@@ -181,9 +181,9 @@ function fit_to_height(){
   // get dimensions of vietport:
   let viewportHeight = window.innerHeight;
   let viewportWidth = window.innerWidth;
-  let viewportSum = viewportHeight + viewportWidth;
+  // let viewportSum = viewportHeight + viewportWidth;
   let vietportArea = viewportHeight * viewportWidth;
-  console.log(viewportWidth + "x" + viewportHeight );
+  // console.log(viewportWidth + "x" + viewportHeight );
 
   // get perspective string:
   let output = document.getElementById("output_generated_combined");

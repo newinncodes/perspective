@@ -5,6 +5,12 @@
   overflow:auto;
 }
 
+#firstline{
+  display:block;
+  overflow:auto;
+
+}
+
 body {
   background: radial-gradient(ellipse at bottom, #EFECCA 0%, #EFECCA 100%);
   position: relative;
@@ -17,13 +23,13 @@ p {
   color: #102542;
   font-family: monospace;
   font-size: 1.6vh;
-  line-height: 3vh;
+  /*line-height: 3vh;*/
   display: inline;
 }
 
 button {
   float: right;
   font-size: 1.4vh;
-  height: 2.6vh;
+  /* height: 2.6vh;*/
   opacity: 80%;
 }
