@@ -2,13 +2,16 @@
   font-family: monospace;
   color: #EFECCA;
   display:block;
-  overflow:auto;
+  overflow:hidden;
+  overflow-wrap:break-word;
+  hyphens:auto;
 }
 
 #firstline{
-  display:block;
+  display:flow-root;
   overflow:auto;
-
+  width: 100vw;
+  padding: 0px;
 }
 
 body {
@@ -22,9 +25,11 @@ body {
 p {
   color: #102542;
   font-family: monospace;
-  font-size: 1.6vh;
-  /*line-height: 3vh;*/
+  font-size: inherit;
   display: inline;
+  height:min-content;
+  line-height:min-content;
+  padding: 0px;
 }
 
 button {
@@ -32,4 +37,5 @@ button {
   font-size: 1.4vh;
   /* height: 2.6vh;*/
   opacity: 80%;
+  padding: 0px 0px;
 }
