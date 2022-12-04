@@ -13,6 +13,8 @@ createPerspective(1);
 animateLabels();
 fit_to_height();
 window.onresize = fit_to_height;
+colourEnd();
+
 //pulse_heartrate(60);
 
 // Calling buttons to set lifespan age
@@ -134,14 +136,59 @@ function createPerspective(intPeriod) {
   // Combine the strings together:
   var str_combined =
     '<span style="background-color:#5B6C5D;">' + str_past_labeled + "</span>" 
-    + '<span style="background-color:#E06D06;">' + str_toavg_labeled + "</span>"
-    + '<span style="background-color:#611C35;">' + str_toend_labeled + "</span>";
+    + '<span style="background-color:#FF3F00;">' + str_toavg_labeled + "</span>"
+    + '<span style="background-color:#FF7F11;">' + str_toend_labeled + "</span>";
   //var str_past_combined = '<span style="background-color:#5B6C5D;">' + str_past_labeled + "</span>"
   //var str_toavg_combined = '<span style="background-color:#E06D06;">' + str_toavg_labeled + "</span>";
   //TODO fade the end of the string
 
   // Send to HTML:
   document.getElementById("output_generated_combined").innerHTML = str_combined;
+}
+
+function colourEnd(stageLen = 20){
+
+  let colourToEnd = [
+    "#FF871F",
+    "#FF9233",
+    "#FF9D47",
+    "#FFA85C",
+    "#FFB370",
+    "#FFBE85",
+    "#FFC999",
+    "#FFD3AD",
+    "#FFDEC2"
+  ];
+
+  let strCombined = document.getElementById("output_generated_combined").innerHTML;
+  let strCombinedNew = "";
+  let intStrLen = strCombined.length;
+  let strEndSpan = "</span>";
+  let strEnding = strCombinedNew.slice(0,intStrLen-stageLen-strEndSpan);
+  let intGradientCounter = colourToEnd.length;
+  let slicePos = 0;
+  let j = 0;
+  //console.log(strCombined);
+
+  for (let i = 1; i <= colourToEnd.length; i++){
+    j = intGradientCounter - i;
+    slicePos=intStrLen-strEndSpan.length-i*stageLen;
+    //console.log(slicePos);
+    strCombinedNew = [strCombined.slice(0,slicePos),
+    '</span><span style="background-color:',
+    colourToEnd[j],';">',
+    "-".repeat(stageLen),
+    strEnding].join('');
+    //console.log(strCombinedNew);
+    strEnding = strCombinedNew.slice(slicePos,);
+  }
+  
+  console.log("Original length: ",(strCombined.match(/-/g) || []).length);
+  console.log("Altered  length: ",(strCombinedNew.match(/-/g) || []).length);
+  
+  // Send to HTML:
+  document.getElementById("output_generated_combined").innerHTML = strCombinedNew;
+
 }
 
 // ------------------------------------
@@ -160,6 +207,7 @@ function animateLabels() {
       lbl_typenum = lbl_typenum + 1;
     }
     createPerspective(lbl_typenum);
+    colourEnd();
   }, refreshRate);
 }
 
@@ -185,6 +233,8 @@ async function colourpulse() {
     "#F37506",
     "#E06D06"
   ];
+
+
 
   // Get the combined string to change:
   let strCombined = document.getElementById("output_generated_combined").innerHTML;
@@ -256,7 +306,7 @@ function fit_to_height(){
   let fontWidthPX = viewportWidth / numX;
   const fontScaler = 1.18; // Adjustment by this scaler as height of font greater than width and we want to fill the space
    
-  output.style.fontSize=(fontWidthPX * fontScaler) +"px";  // Adjust by 1.2 as fontheight is larger than fontwidth in monospace
-  firstline.style.fontSize=(fontWidthPX * fontScaler) +"px";  // Adjust by 1.2 as fontheight is larger than fontwidth in monospace
-  butToggle.style.fontSize=(fontWidthPX * fontScaler) +"px";  // Adjust by 1.2 as fontheight is larger than fontwidth in monospace
+  output.style.fontSize=(fontWidthPX * fontScaler) +"px";  // Adjust by scaler as fontheight is larger than fontwidth in monospace
+  firstline.style.fontSize=(fontWidthPX * fontScaler) +"px";  // Adjust by scaler as fontheight is larger than fontwidth in monospace
+  butToggle.style.fontSize=(fontWidthPX * fontScaler) +"px";  // Adjust by scaler as fontheight is larger than fontwidth in monospace
 }
