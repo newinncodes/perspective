@@ -39,3 +39,22 @@ button {
   opacity: 80%;
   padding: 0px 0px;
 }
+
+.button-round {
+  float:none;
+  font-size: 1.4vh;
+  width: 2vh;
+  height: 2vh;
+  opacity: 100%;
+  border-style: solid;
+  background-color: #EFECCA;
+  padding: 0px 0px;
+  border-radius: 50%;
+  border-color: dimgray;
+}
+
+#lbl_explanation{
+  float:right;
+  font-size: inherit;
+  color: grey;
+}

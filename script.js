@@ -97,7 +97,7 @@ function createPerspective(intPeriod) {
     " " +
     lbl_Period +
     " ";
-  if (bolExplain==1){str_past_label="The time that have passed"}; // Explanation override
+  if (bolExplain==1){str_past_label="Time passed"}; // Explanation override
   var dif_past_weeks_half = (dif_past_weeks - str_past_label.length) / 2;
   var str_past_labeled =
     str_past.repeat(dif_past_weeks_half) +
@@ -110,7 +110,7 @@ function createPerspective(intPeriod) {
     " " +
     lbl_Period +
     " ";
-  if (bolExplain==1){str_toavg_label="The time remaining until reaching an average life span"}; // Explanation override
+  if (bolExplain==1){str_toavg_label="Time till average life span of 88 years"}; // Explanation override
   var dif_toavg_weeks_half = (dif_toavg_weeks - str_toavg_label.length) / 2;
   var str_toavg_labeled =
     str_toavg.repeat(dif_toavg_weeks_half) +
@@ -123,7 +123,7 @@ function createPerspective(intPeriod) {
     " " +
     lbl_Period +
     " ";
-  if (bolExplain==1){str_toend_label="The time remaining beyond an average life span"}; // Explanation override
+  if (bolExplain==1){str_toend_label="Time till a life span of 120 years"}; // Explanation override
   var dif_toend_weeks_half = (dif_toend_weeks - str_toend_label.length) / 2;
   var str_toend_labeled =
     str_toend.repeat(dif_toend_weeks_half) +
@@ -265,18 +265,22 @@ function pulse_heartrate(intBPM) {
 
 // FUNCTION:  To toggle explanations or counters
 async function toggle_labels(){
-  let butToggle = document.getElementById("but_toggle_labels");
-  const ToggleStates = ["explain", "time"];
+  let butToggle = document.getElementById("lbl_explanation");
+  const ToggleStates = ["Display: time in weeks", 
+                        "Display: an explanation"];
 
   if (butToggle.innerHTML==ToggleStates[0]){
     butToggle.innerHTML=ToggleStates[1];
     bolExplain=1;
     createPerspective(0);
+    colourEnd();
   } else {
     butToggle.innerHTML=ToggleStates[0];
     bolExplain=0;
     createPerspective(0);
+    colourEnd();
   }
+  //colourEnd();
 }
 
 
