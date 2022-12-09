@@ -97,7 +97,7 @@ function createPerspective(intPeriod) {
     " " +
     lbl_Period +
     " ";
-  if (bolExplain==1){str_past_label="Time passed"}; // Explanation override
+  if (bolExplain==1){str_past_label=" Time passed "}; // Explanation override
   var dif_past_weeks_half = (dif_past_weeks - str_past_label.length) / 2;
   var str_past_labeled =
     str_past.repeat(dif_past_weeks_half) +
@@ -110,7 +110,7 @@ function createPerspective(intPeriod) {
     " " +
     lbl_Period +
     " ";
-  if (bolExplain==1){str_toavg_label="Time till average life span of 88 years"}; // Explanation override
+  if (bolExplain==1){str_toavg_label=" Time till average life span of 88 years "}; // Explanation override
   var dif_toavg_weeks_half = (dif_toavg_weeks - str_toavg_label.length) / 2;
   var str_toavg_labeled =
     str_toavg.repeat(dif_toavg_weeks_half) +
@@ -123,7 +123,7 @@ function createPerspective(intPeriod) {
     " " +
     lbl_Period +
     " ";
-  if (bolExplain==1){str_toend_label="Time till a life span of 120 years"}; // Explanation override
+  if (bolExplain==1){str_toend_label=" Time till a life span of 120 years "}; // Explanation override
   var dif_toend_weeks_half = (dif_toend_weeks - str_toend_label.length) / 2;
   var str_toend_labeled =
     str_toend.repeat(dif_toend_weeks_half) +
@@ -183,8 +183,8 @@ function colourEnd(stageLen = 20){
     strEnding = strCombinedNew.slice(slicePos,);
   }
   
-  console.log("Original length: ",(strCombined.match(/-/g) || []).length);
-  console.log("Altered  length: ",(strCombinedNew.match(/-/g) || []).length);
+  //console.log("Original length: ",(strCombined.match(/-/g) || []).length);
+  //console.log("Altered  length: ",(strCombinedNew.match(/-/g) || []).length);
   
   // Send to HTML:
   document.getElementById("output_generated_combined").innerHTML = strCombinedNew;
