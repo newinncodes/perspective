@@ -266,8 +266,8 @@ function pulse_heartrate(intBPM) {
 // FUNCTION:  To toggle explanations or counters
 async function toggle_labels(){
   let butToggle = document.getElementById("lbl_explanation");
-  const ToggleStates = ["Display: time in weeks", 
-                        "Display: an explanation"];
+  const ToggleStates = ["Displaying time where every dash equals one week", 
+                        "Displaying the definitions"];
 
   if (butToggle.innerHTML==ToggleStates[0]){
     butToggle.innerHTML=ToggleStates[1];
