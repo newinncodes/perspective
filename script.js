@@ -296,7 +296,7 @@ function fit_to_height(){
   // get perspective string:
   let output = document.getElementById("output_generated_combined");
   let firstline = document.getElementById("firstline");
-  let butToggle = document.getElementById("but_toggle_labels");
+  let butToggle = document.getElementById("but_explain");
   let strCombined = output.innerHTML;
 
   // calculate dimensions for new font size:
