@@ -329,5 +329,5 @@ function fit_to_height(){
    
   output.style.fontSize=(fontWidthPX * fontScaler) +"px";  // Adjust by scaler as fontheight is larger than fontwidth in monospace
   firstline.style.fontSize=(fontWidthPX * fontScaler) +"px";  // Adjust by scaler as fontheight is larger than fontwidth in monospace
-  butToggle.style.fontSize=(fontWidthPX * fontScaler) +"px";  // Adjust by scaler as fontheight is larger than fontwidth in monospace
+  //butToggle.style.fontSize=(fontWidthPX * fontScaler) +"px";  // Adjust by scaler as fontheight is larger than fontwidth in monospace
 }
