@@ -38,6 +38,20 @@ function setLifespan88() {
 // --------------------------------------
 
 function calcDays(intLifespan) {
+
+  // Get DOB from URL:
+  // Get the current URL
+  let url = new URL(window.location.href);
+
+  // Get the value of a dob parameter (in "YYYY-MM-DD")
+  let param = url.searchParams.get("dob");
+
+  // Get all the parameters as a map
+  let params = url.searchParams;
+  for (let [key, value] of params) {
+    console.log(key, value);
+  }
+
   // Calculate the number of weeks in the past and future
   const date_birthday = new Date("10/01/1983");
   const date_deathday = new Date(date_birthday.getTime());
