@@ -44,7 +44,7 @@ function calcDays(intLifespan) {
   let url = new URL(window.location.href);
 
   // Get the value of a dob parameter (in "DDMMYYYY")
-  let param = url.searchParams;
+  let params = url.searchParams;
   dob = params.get('dob');
 
   try{
