@@ -43,8 +43,17 @@ function calcDays(intLifespan) {
   // Get the current URL
   let url = new URL(window.location.href);
 
-  // Get the value of a dob parameter (in "YYYY-MM-DD")
-  let param = url.searchParams.get("dob");
+  // Get the value of a dob parameter (in "DDMMYYYY")
+  let param = url.searchParams;
+  dob = parseStr(params.get('dob'));
+
+  try{
+    dob_string = dob.substring(1,2) + "/" + dob.substring(3,4) + "/" + dob.substring(5,8) 
+    const date_birthday = new Date(dob_string);
+  }
+  catch{
+    const date_birthday = new Date("10/01/1983");
+  }
 
   // Get all the parameters as a map
   let params = url.searchParams;
@@ -53,7 +62,7 @@ function calcDays(intLifespan) {
   }
 
   // Calculate the number of weeks in the past and future
-  const date_birthday = new Date("10/01/1983");
+  //const date_birthday = new Date("10/01/1983");
   const date_deathday = new Date(date_birthday.getTime());
   date_deathday.setFullYear(date_birthday.getFullYear() + intLifespan);
   const date_today = new Date();
