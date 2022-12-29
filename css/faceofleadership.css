@@ -1,0 +1,216 @@
+@import url(https://fonts.googleapis.com/css?family=Amatic+SC:400,700);
+
+html, body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: monospace;
+  font-size: 110%;
+}
+
+.block{
+  width: 100%;
+  min-height: 600%; /* sets the total height of the scroll*/
+  position: relative;
+  overflow:hidden;
+/*   border: 5px solid blue; */
+}
+
+.desktop-image {
+  display: block;
+}
+
+.mobile-image {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .desktop-image {
+    display: none;
+  }
+  .mobile-image {
+    display: block;
+  }
+  html, body{
+    font-size: 90%;
+  }
+}
+
+.img-parallax {
+  width: 100%;
+  height: auto;
+  z-index: -1;
+  top: 0%;
+  pointer-events: none;
+  min-height: 500%;
+  position: relative;
+  /*   border: 5px solid red; */
+}
+
+/* Style the headers that are non-sticky */
+.non-stickyheader {
+  position: absolute;
+  z-index: 2;
+  background: #fff;
+  opacity: 0.9;
+  width: 100%;
+  padding: 0px;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Style the headers that are sticky */
+.stickyheader {
+  position: absolute;
+  z-index: 2;
+  background: #fff;
+  opacity: 0.9;
+  width: 100%;
+  padding:0px;
+  margin:0%;
+  line-height: normal;  /* set to same as height */
+  left: 0px;
+  text-align: center;
+}
+
+/* Container for headings */
+section {
+  display: -webkit-flex;
+  display: flex;
+  margin:0px;
+  align-items: center;
+}
+
+/* Style the main statistic */
+.mainstat {
+  -webkit-flex: 4;
+  -ms-flex: 4;
+  flex: 4;
+  padding: 0px;
+  text-align: right;
+  font-size: 2.5em;
+  font-weight: bold;
+  margin:0px;
+  padding: 0px 0px 0px 0px;
+}
+
+/* Style the sub-statistic */
+.substat{
+  text-align: left;
+  opacity: 0.95;
+  font-size: 1em;
+  padding: 10px 20px 10px 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: normal;
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  margin:0px;
+  color: black;
+}
+
+h3{
+  padding-top: 20px;
+  text-decoration-line: underline;
+}
+
+h4{
+  padding-top: 20px;
+  margin:0%;
+  text-decoration-line: underline;
+}
+/* Set the header's positions on the page */
+#header0 {
+  top: 35%;
+  padding:0px;
+  margin:0px;
+}
+
+#header1 {
+  top: 145%;
+  font-size: 2.5em;
+  font-weight: bold;
+  text-align: center;
+}
+#header2 {
+  top: 245%;
+}
+
+#header3 {
+  top: 345%;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  padding: 0%;
+  margin: 0%;
+}
+#header4 {
+  top: 445%;
+}
+
+#header0main{
+  font-size: 2em;
+  text-align: center;
+  padding:0% 10%;
+}
+
+#header0sub{
+  font-size: 1em;
+  margin:5px 0px;
+}
+
+#bottom {
+  font-family:inherit;
+  position: relative;
+  overflow: hidden;
+  border-top: 3px solid darkgray;
+/*   border: 5px solid green; */
+  font-size: 1em;
+  font-style:inherit;
+}
+
+
+#footnotes{
+  font-family:inherit;
+  position: relative;
+  font-size: 0.8em;
+  font-style:normal;
+}
+
+#photoOfMe{
+  margin-right:15px;
+}
+
+/* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+@media (max-width: 350px) {
+  section {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+  
+}
+
+/* Style all font awesome icons */
+.fa {
+  padding: 3px 5px;
+  font-size: 1em;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-linkedin {
+  background: #0072B1;
+  color: white;
+}

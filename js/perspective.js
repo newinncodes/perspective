@@ -165,6 +165,8 @@ function createPerspective(intPeriod) {
 
 function colourEnd(stageLen = 20){
 
+  //TODO set up alpha on the colour using these values: https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
+
   let colourToEnd = [
     "#FF871F",
     "#FF9233",

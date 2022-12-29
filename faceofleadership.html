@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Newinn - Face of leadership</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/faceofleadership.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- Add icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+
+<body>
+
+  <div class="block" id="bg_collage">
+    <img src="assets/FOL_imgCollageAssessed_desktop.jpg" class="desktop-image img-parallax" alt="Desktop Image">
+    <img src="assets/FOL_imgCollageAssessed_mobile.jpg" class="mobile-image img-parallax" alt="Mobile Image">
+  </div>
+  <div class="non-stickyheader" id="header0">
+    <!-- <div id="header0main">These are the faces of exec teams from <strong><span id="numberOfCompanies">{companyNumber}</span></strong> Tech Nation alumni companies based in the UK</div> -->
+    <div id="header0main">Here are the faces of exec teams from <span id="numberOfCompanies">{companyNumber}</span> tech companies in the UK</div>
+    <div id="header0sub">(scroll down) </div>
+  </div>
+  <div class="stickyheader" id="header1">
+    The face of UK tech<br>leadership is...
+  </div>
+  <div class="stickyheader" id="header2">
+    <section>
+      <span class="mainstat"><strong><span id="percentWhite">{percent_white}</span></strong>% white</span>
+      <article class="substat">vs. a comparative population that is <strong><span id="weightedAvgBenchmarkWhite">{weightedAvgBenchmarkWhite}</span>%</strong><sup>1</sup> white </article> 
+    </section> 
+  </div>
+  <div class="stickyheader" id="header3">
+    and
+  </div>
+  <div class="stickyheader" id="header4">
+    <section>
+      <span class="mainstat"><strong><span id="percentMale">{percent_male}</span></strong>% male</span>
+      <article class="substat">vs. a comparative population that is <strong>50%</strong> male</article> 
+    </section> 
+    
+  </div>
+  <div id="bottom">
+    <h3>About this piece</h3>
+    <p>The idea for this piece originated in Dec 2022 after I noticed that the executive announcements on my LinkedIn page appeared uniformly male and white</p>
+    <p>This fired up my curiosity to analyse the optic diversity of exec teams<sup>2</sup> in the UK tech scene - and represent what I found in a visual way through their faces</p>
+    <p>This piece was created in Python + MongoDB + Django; with smatterings of html, javascript and css</p>
+    <p>The piece will continually refresh each day as more data is collated into the project and the algorithm evolves</p>
+    <p>This is not intended to be a thought-leadership piece on diversity in UK tech.  If that's what you're after, then check out <a href = "https://technation.io/diversity-and-inclusion-in-uk-tech/">Tech Nation's report on Diversity and Inclusion in the UK</a></p>
+    
+    <h3>About me</h3>
+    <p>
+      <img id="photoOfMe" src="assets/FOL_me.jpg" alt="My photo" width="70" height="70" style="float:left">
+      Hi - I'm An 👋.
+      <br>I've served in a couple of c-suite roles in VC-backed startups in Europe
+      <br>I'm a generalist-at-heart who likes to dabble and is curious by nature
+    </p>
+    <p>You can find and contact me here --> <a href="https://www.linkedin.com/in/anthiennguyen/" class="fa fa-linkedin" target="_blank"></a></p>
+    
+    
+    <h3>Companies currently included in this piece</h3>
+    <p><strong>The companies included are from Tech Nation's list of alumni as of Dec 2022</strong>. Source: <a href = "https://technation.io/programmes/alumni/">https://technation.io/programmes/alumni/ </a></p>
+    <span id="companyList">Include a list of companies here</span>
+    
+    <h4>Footnotes</h4>
+    <div id="footnotes">
+      <p>1. <strong>"a comparative population that is <span id="weightedAvgBenchmarkWhite_detail">{weightedAvgBenchmarkWhite_detail}</span>% white"</strong>
+         - calculated as a weighted average with <span id="Company_PercentInLondon">{Company_PercentInLondon}</span>% of the companies being based in London 
+         where <span id="PercentWhite_London">{PercentWhite_London}</span>% of the population identify as white (based on <a href="https://www.ons.gov.uk/datasets/TS021/editions/2021/versions/1">2021 census data from the ONS</a>)
+         and the remaining <span id="Company_PercentNotInLondon">{Company_PercentNotInLondon}</span>% of companies are based outside London 
+         where <span id="PercentWhite_OutsideLondon">{PercentWhite_OutsideLondon}</span>% of the population identify as white (based on <a href="https://www.ons.gov.uk/datasets/TS021/editions/2021/versions/1">2021 census data from the ONS</a>)
+      </p>
+      <p>2. <strong>exec team members determined through job titles that include </strong>
+        - CEO, COO, CFO, CTO, CPO, CCO, CRO, CHRO, other three-letter C-roles, president, managing director (MD) and vice-president (VP)
+     </p>
+    </div>
+  </div>
+
+</body>
+<script src="./js/faceofleadership.js"></script>
+
+</html>
