@@ -40,7 +40,7 @@ $(document).on({
 
 function refreshVariables(){
     
-    intBuffer = 50
+    intBuffer = 150
 
     stickyHeight = [
         sticky[0].offsetHeight,
@@ -131,6 +131,7 @@ function populateStats() {
     fetch('./js/faceofleadership_stats.json')
         .then(response => response.json())
         .then(data => {
+            document.getElementById('numberOfPeople').textContent = data.numberOfPeopleCompleted;
             document.getElementById('numberOfCompanies').textContent = data.numberOfCompanies;
             document.getElementById('percentMale').textContent = data.percentMale;
             document.getElementById('percentWhite').textContent = data.percentWhite;
