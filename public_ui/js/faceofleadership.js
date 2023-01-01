@@ -131,16 +131,16 @@ function populateStats() {
     fetch('./js/faceofleadership_stats.json')
         .then(response => response.json())
         .then(data => {
-            document.getElementById('numberOfPeople').textContent = data.numberOfPeopleCompleted;
-            document.getElementById('numberOfCompanies').textContent = data.numberOfCompanies;
-            document.getElementById('percentMale').textContent = data.percentMale;
-            document.getElementById('percentWhite').textContent = data.percentWhite;
+            document.getElementById('numberOfPeople').textContent = data.numberOfPeopleCompleted.toLocaleString();
+            document.getElementById('numberOfCompanies').textContent = data.numberOfCompanies.toLocaleString();
+            document.getElementById('percentMale').textContent = Math.round(data.percentMale);
+            document.getElementById('percentWhite').textContent = Math.round(data.percentWhite);
             document.getElementById('companyList').textContent = data.companyList;
             
             dblCompany_PercentWhite = PercentWhite_London*data.Company_PercentInLondon + PercentWhite_OutsideLondon * (1-data.Company_PercentInLondon)
-            dblCompany_PercentWhite = (dblCompany_PercentWhite * 100).toFixed(1)
-            document.getElementById('weightedAvgBenchmarkWhite').textContent = dblCompany_PercentWhite;
-            document.getElementById('weightedAvgBenchmarkWhite_detail').textContent = dblCompany_PercentWhite;
+            dblCompany_PercentWhite = Math.round((dblCompany_PercentWhite * 100))
+            document.getElementById('weightedAvgBenchmarkWhite').textContent = Math.round(dblCompany_PercentWhite);
+            document.getElementById('weightedAvgBenchmarkWhite_detail').textContent = Math.round(dblCompany_PercentWhite);
 
             document.getElementById('Company_PercentInLondon').textContent = (data.Company_PercentInLondon * 100).toFixed(1);
             document.getElementById('Company_PercentNotInLondon').textContent = ((1-data.Company_PercentInLondon) * 100).toFixed(1);
