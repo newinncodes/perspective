@@ -11,7 +11,7 @@ html, body{
 
 .block{
   width: 100%;
-  min-height: 600%; /* sets the total height of the scroll*/
+  min-height: 700%; /* sets the total height of the scroll*/
   position: relative;
   overflow:hidden;
 /*   border: 5px solid blue; */
@@ -43,7 +43,7 @@ html, body{
   z-index: -1;
   top: 0%;
   pointer-events: none;
-  min-height: 500%;
+  min-height: 550%;
   position: relative;
   /*   border: 5px solid red; */
 }
