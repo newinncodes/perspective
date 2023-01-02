@@ -134,7 +134,7 @@ function populateStats() {
             document.getElementById('numberOfPeopleComplete_A').textContent = data.numberOfPeopleCompleted.toLocaleString();
             document.getElementById('numberOfPeopleComplete_B').textContent = data.numberOfPeopleCompleted.toLocaleString();
             document.getElementById('date_last_update').textContent = data.date_last_updated;
-            document.getElementById('total_people_counter').textContent = data.countTotalPeople;
+            // document.getElementById('total_people_counter').textContent = data.countTotalPeople.toLocaleString();
             document.getElementById('numberOfCompanies').textContent = data.numberOfCompanies.toLocaleString();
             document.getElementById('percentMale').textContent = Math.round(data.percentMale);
             document.getElementById('percentWhite').textContent = Math.round(data.percentWhite);
