@@ -8,23 +8,6 @@ var sticky = [
 let startPos = [sticky[0].offsetTop, sticky[1].offsetTop, sticky[2].offsetTop, sticky[3].offsetTop];
 let maxBackgroundHeight = document.getElementById("bg_collage").offsetHeight
 
-/* let stickyHeight = [
-    sticky[0].offsetHeight,
-    sticky[1].offsetHeight,
-    sticky[2].offsetHeight,
-    sticky[3].offsetHeight
-];
-
-
-let stickyPos = [intBuffer, stickyHeight[0] + intBuffer, stickyHeight[1] + stickyHeight[0] + intBuffer, 
-                stickyHeight[2] + stickyHeight[1] + stickyHeight[0] + intBuffer];
-let maxScroll = [
-    startPos[0] - stickyPos[0],
-    startPos[1] - stickyPos[1],
-    startPos[2] - stickyPos[2],
-    startPos[3] - stickyPos[3]
-]; */
-
 $(document).on({
     scroll: function () {
         refreshVariables();
@@ -60,30 +43,6 @@ function refreshVariables(){
     ];
 
 }
-
-/*
-function setStickyVariables() {
-  // reset arrays:
-  sticky=[];
-  startPos=[];
-  stickyHeight=[];
-  maxScroll=[];
-  
-  // get all stickyheader elements in HTML
-  sticky = document.getElementsByClassName("stickyheader");
-  // set up dimensions of sticky elements
-  for (var j=0; j<sticky.length; j++){
-    startPos.push = sticky[j].offsetTop;
-    stickyHeight.push = sticky[j].offsetHeight;
-    if (j=0){
-      stickyPos.push = 0;
-    }else{
-      stickyHeight[j-1];
-    }
-    maxScroll.push=startPos[j] -stickyPos[1];
-  }
-}
-*/
 
 function scrollAndStick() {
 
