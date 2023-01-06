@@ -12,12 +12,8 @@ calcDays(120);
 createPerspective(1);
 animateLabels();
 fit_to_height();
-window.onresize = fit_to_height;
 colourEnd();
-
-//pulse_heartrate(60);
-
-// Calling buttons to set lifespan age
+window.onresize = fit_to_height;
 
 // TODO map slowly unfolds and folds as years are changed
 
@@ -105,7 +101,6 @@ function createPerspective(intPeriod) {
     int_toendPeriods = dif_toend_days / 365;
     lbl_Period = "years";
   }
-  //var str_future_repeated = str_toavg.repeat(dif_toavg_weeks);
 
   // Add in length of time to the strings:
   var str_past_label =
@@ -155,9 +150,6 @@ function createPerspective(intPeriod) {
     '<span style="background-color:#5B6C5D;">' + str_past_labeled + "</span>" 
     + '<span style="background-color:#FF3F00;">' + str_toavg_labeled + "</span>"
     + '<span style="background-color:#FF7F11;">' + str_toend_labeled + "</span>";
-  //var str_past_combined = '<span style="background-color:#5B6C5D;">' + str_past_labeled + "</span>"
-  //var str_toavg_combined = '<span style="background-color:#E06D06;">' + str_toavg_labeled + "</span>";
-  //TODO fade the end of the string
 
   // Send to HTML:
   document.getElementById("output_generated_combined").innerHTML = str_combined;
@@ -165,9 +157,24 @@ function createPerspective(intPeriod) {
 
 function colourEnd(stageLen = 20){
 
-  //TODO set up alpha on the colour using these values: https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
+  let alphaScale = ["FF", "FC", "FA", "F7", "F5", "F2", "F0", "ED", "EB", "E8", 
+  "E6", "E3", "E0", "DE", "DB", "D9", "D6", "D4", "D1", "CF", 
+  "CC", "C9", "C7", "C4", "C2", "BF", "BD", "BA", "B8", "B5", 
+  "B3", "B0", "AD", "AB", "A8", "A6", "A3", "A1", "9E", "9C", 
+  "99", "96", "94", "91", "8F", "8C", "8A", "87", "85", "82", 
+  "80", "7D", "7A", "78", "75", "73", "70", "6E", "6B", "69", 
+  "66", "63", "61", "5E", "5C", "59", "57", "54", "52", "4F", 
+  "4D", "4A", "47", "45", "42", "40", "3D", "3B", "38", "36", 
+  "33", "30", "2E", "2B", "29", "26", "24", "21", "1F", "1C", 
+  "1A", "17", "14", "12", "0F", "0D", "0A", "08", "05", "03", "00"]
 
-  let colourToEnd = [
+  let alphaStageLen = []
+  let intDiv = Math.floor(100/stageLen)
+  for (let intStage = 1; intStage <= stageLen; intStage++){
+    alphaStageLen.push(alphaScale[intStage * intDiv])
+  }
+
+/*   let colourToEnd = [
     "#FF871F",
     "#FF9233",
     "#FF9D47",
@@ -179,6 +186,12 @@ function colourEnd(stageLen = 20){
     "#FFDEC2"
   ];
 
+ */  
+  colourToEnd = []
+  for (iAlpha = 1; iAlpha<=stageLen; iAlpha++){
+    colourToEnd.push("#FF7F11"+alphaStageLen[iAlpha])
+  }
+
   let strCombined = document.getElementById("output_generated_combined").innerHTML;
   let strCombinedNew = "";
   let intStrLen = strCombined.length;
@@ -187,23 +200,17 @@ function colourEnd(stageLen = 20){
   let intGradientCounter = colourToEnd.length;
   let slicePos = 0;
   let j = 0;
-  //console.log(strCombined);
 
   for (let i = 1; i <= colourToEnd.length; i++){
     j = intGradientCounter - i;
     slicePos=intStrLen-strEndSpan.length-i*stageLen;
-    //console.log(slicePos);
     strCombinedNew = [strCombined.slice(0,slicePos),
     '</span><span style="background-color:',
     colourToEnd[j],';">',
     "-".repeat(stageLen),
     strEnding].join('');
-    //console.log(strCombinedNew);
     strEnding = strCombinedNew.slice(slicePos,);
   }
-  
-  //console.log("Original length: ",(strCombined.match(/-/g) || []).length);
-  //console.log("Altered  length: ",(strCombinedNew.match(/-/g) || []).length);
   
   // Send to HTML:
   document.getElementById("output_generated_combined").innerHTML = strCombinedNew;
@@ -272,16 +279,6 @@ async function colourpulse() {
   }
 }
 
-// Unused test function - to get something on the site pulsing like a heartrate
-
-function pulse_heartrate(intBPM) {
-  const milliseconds_between_beats = 1 / (intBPM / 60) * 1000;
-  window.setInterval(() => {
-    pulse_heartbeat();
-  }, milliseconds_between_beats);
-  //pulse_heartbeat;
-}
-
 // FUNCTION:  To toggle explanations or counters
 async function toggle_labels(){
   let butToggle = document.getElementById("lbl_explanation");
@@ -299,7 +296,7 @@ async function toggle_labels(){
     createPerspective(0);
     colourEnd();
   }
-  //colourEnd();
+  colourEnd();
 }
 
 
@@ -308,9 +305,7 @@ function fit_to_height(){
   // get dimensions of vietport:
   let viewportHeight = window.innerHeight;
   let viewportWidth = window.innerWidth;
-  // let viewportSum = viewportHeight + viewportWidth;
   let vietportArea = viewportHeight * viewportWidth;
-  // console.log(viewportWidth + "x" + viewportHeight );
 
   // get perspective string:
   let output = document.getElementById("output_generated_combined");
