@@ -112,7 +112,7 @@ function populateStats() {
             document.getElementById('PercentWhite_London').textContent = (PercentWhite_London * 100).toFixed(1);
             document.getElementById('PercentWhite_OutsideLondon').textContent = (PercentWhite_OutsideLondon * 100).toFixed(1);
 
-            if (bolPreviewMode = true){
+            if (bolPreviewMode == true){
                 document.getElementById('percentMale').textContent = "___";
                 document.getElementById('percentWhite').textContent = "___";
             }
