@@ -82,7 +82,7 @@ function populateStats() {
     console.log("getting statsJSON")
 
     // Preview mode or not
-    bolPreviewMode = true;
+    bolPreviewMode = false;
 
     // Calculate benchmark white percentage:
     let dblCompany_PercentWhite = 0;
