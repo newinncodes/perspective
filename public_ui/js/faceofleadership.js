@@ -81,6 +81,9 @@ function populateStats() {
 
     console.log("getting statsJSON")
 
+    // Preview mode or not
+    bolPreviewMode = true;
+
     // Calculate benchmark white percentage:
     let dblCompany_PercentWhite = 0;
     const PercentWhite_London = 0.528;
@@ -108,7 +111,13 @@ function populateStats() {
             document.getElementById('Company_PercentNotInLondon').textContent = ((1-data.Company_PercentInLondon) * 100).toFixed(1);
             document.getElementById('PercentWhite_London').textContent = (PercentWhite_London * 100).toFixed(1);
             document.getElementById('PercentWhite_OutsideLondon').textContent = (PercentWhite_OutsideLondon * 100).toFixed(1);
+
+            if (bolPreviewMode = true){
+                document.getElementById('percentMale').textContent = "___";
+                document.getElementById('percentWhite').textContent = "___";
+            }
         });
+    
 }
 // Run these on load:
 populateStats();
