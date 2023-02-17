@@ -1,0 +1,20 @@
+body {
+	background-color: #efefef;
+	font-family: system-ui;
+	font-size: 1.2em;
+	
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 15%;
+	line-height: 1.8;
+}
+
+h1{
+    font-size: 2em;
+    font-weight: bold;
+
+}
+#heading{
+    display: flex;
+    align-items: center;
+}
