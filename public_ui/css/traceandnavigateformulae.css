@@ -18,3 +18,7 @@ h1{
     display: flex;
     align-items: center;
 }
+.block{
+    word-spacing: 5;
+    line-height: 200%;
+}
