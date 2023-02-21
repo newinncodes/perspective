@@ -10,15 +10,58 @@ body {
 }
 
 h1{
-    font-size: 2em;
+    font-size: 3em;
     font-weight: bold;
-
+}
+h2{
+    font-size: 2.5em;
+    font-weight: bold;
 }
 #heading{
     display: flex;
     align-items: center;
 }
+#heading img{
+    margin-right: 20px;
+}
 .block{
     word-spacing: 5;
     line-height: 200%;
+}
+.step{
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    margin-top: 5%;
+}
+.step_head{
+    font-weight: bold;
+    font-size: 1.5em;
+}
+.step_left{
+    flex: 1;
+}
+.step_right{
+    flex: 3;
+    resize: both;
+    padding-left: 4%;
+}
+.step_right img {
+    width: 100%;
+  }
+.features{
+    display: flex;
+    flex-direction: row;
+}
+.left_col{
+    flex: 1;
+}
+.right_col{
+    flex: 1;
+    }
+
+.example{
+    font-style: italic;
 }
